@@ -8,6 +8,7 @@
 import Foundation
 
 struct StopResponse:Decodable {
+    var code: String
     var response:  Stops
 }
 
