@@ -69,6 +69,9 @@ struct MapboxMap: UIViewRepresentable {
         return visibleCoordinates.sw
     }
     
+    public func getCenter() -> CLLocationCoordinate2D  {
+        return mapView.centerCoordinate
+    }
     
     final class Coordinator: NSObject, MGLMapViewDelegate {
         var control: MapboxMap
@@ -80,11 +83,11 @@ struct MapboxMap: UIViewRepresentable {
         func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
             
             let coordinates = [
-                CLLocationCoordinate2D(latitude: 37.791329, longitude: -122.396906),
-                CLLocationCoordinate2D(latitude: 37.791591, longitude: -122.396566),
-                CLLocationCoordinate2D(latitude: 37.791147, longitude: -122.396009),
-                CLLocationCoordinate2D(latitude: 37.790883, longitude: -122.396349),
-                CLLocationCoordinate2D(latitude: 37.791329, longitude: -122.396906),
+                CLLocationCoordinate2D(latitude: 40.731457, longitude: -73.994279),
+                CLLocationCoordinate2D(latitude: 40.731511, longitude: -73.988598),
+                CLLocationCoordinate2D(latitude: 40.728938, longitude: -73.988693),
+                CLLocationCoordinate2D(latitude: 40.729151, longitude: -73.994284),
+                CLLocationCoordinate2D(latitude: 40.731457, longitude:  -73.994279),
             ]
             
             let buildingFeature = MGLPolygonFeature(coordinates: coordinates, count: 5)

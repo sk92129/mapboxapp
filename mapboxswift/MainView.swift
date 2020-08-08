@@ -15,11 +15,36 @@ struct MainView: View {
        ]
     
     @State private var name: String = ""
-    private var canRegister: Bool {
-        name.count >= 3 && name.count <= 16
+    
+    @State private var listOfStops = [StopDetail]() {
+        didSet {
+            // get called when the list is set
+            DispatchQueue.main.async {
+                print("should reload the list/table UI")
+            }
+        }
     }
     
-    let myMapHolder = MapboxMap().centerCoordinate(.init(latitude: 37.791293, longitude: -122.396324)).zoomLevel(16)
+    
+    private func search (center : CLLocationCoordinate2D, radius: Double) -> Bool {
+        print("center")
+        print (center)
+        let mapService = MapService(lat: center.latitude, lon: center.longitude, radius: radius)
+        mapService.getStops { result in
+            switch result {
+            case .failure (let error):
+                print(error)
+            case .success(let stops):
+                self.listOfStops = stops
+            }
+            
+        }
+        return false
+    }
+    
+
+    
+    let myMapHolder = MapboxMap().centerCoordinate(.init(latitude: 40.730340, longitude: -73.991712)).zoomLevel(16)
 
     var body: some View {
         GeometryReader { geometry in
@@ -32,9 +57,10 @@ struct MainView: View {
                                               print("edit = \(edit)")
                                             },
                                             onCommit: {
-                                                print(myMapHolder.getNE())
-                                                print(myMapHolder.getSW())
-
+                                                
+                                                print(myMapHolder.getCenter())
+                                                // 1.0 mile for now.
+                                                self.search(center: myMapHolder.getCenter(), radius: 1.0)
                                               print("COMITTED!")
                                                 
                                             })
@@ -50,8 +76,8 @@ struct MainView: View {
                         Text("result 3")
                     }
 
-                    .opacity(self.canRegister ? 1.0 : 0.5)
-                    .disabled(!self.canRegister)
+                    
+                    
 
                     Spacer()
                 }
