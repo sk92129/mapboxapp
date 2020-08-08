@@ -10,10 +10,7 @@ import Mapbox
 
 
 struct ContentView: View {
-    
-   
-    
-    
+
     var body: some View {
         MainView()
     }

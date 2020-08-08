@@ -10,16 +10,10 @@ import SwiftUI
 import Mapbox
 
 
-extension MGLPointAnnotation {
-    convenience init(title: String, coordinate: CLLocationCoordinate2D) {
-        self.init()
-        self.title = title
-        self.coordinate = coordinate
-    }
-}
+
 
 struct MapboxMap: UIViewRepresentable {
-    @Binding var annotations: [MGLPointAnnotation]
+    //@Binding var annotations: [MGLPointAnnotation]
     
     
     private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: MGLStyle.streetsStyleURL)
@@ -33,6 +27,7 @@ struct MapboxMap: UIViewRepresentable {
         updateAnnotations()
     }
     
+
     
     func makeCoordinator() -> MapboxMap.Coordinator {
            Coordinator(self)
@@ -55,6 +50,9 @@ struct MapboxMap: UIViewRepresentable {
     }
     
     private func updateAnnotations() {
+        let annotations: [MGLPointAnnotation] = [
+               MGLPointAnnotation()
+           ]
         if let currentAnnotations = mapView.annotations {
             mapView.removeAnnotations(currentAnnotations)
         }
