@@ -32,7 +32,9 @@ struct MainView: View {
                                               print("edit = \(edit)")
                                             },
                                             onCommit: {
-                                                
+                                                print(myMapHolder.getNE())
+                                                print(myMapHolder.getSW())
+
                                               print("COMITTED!")
                                                 
                                             })

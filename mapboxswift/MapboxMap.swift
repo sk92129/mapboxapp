@@ -59,6 +59,15 @@ struct MapboxMap: UIViewRepresentable {
         mapView.addAnnotations(annotations)
     }
     
+    public func getNE() -> CLLocationCoordinate2D  {
+        let visibleCoordinates = mapView.visibleCoordinateBounds
+        return visibleCoordinates.ne
+    }
+    
+    public func getSW() -> CLLocationCoordinate2D  {
+        let visibleCoordinates = mapView.visibleCoordinateBounds
+        return visibleCoordinates.sw
+    }
     
     
     final class Coordinator: NSObject, MGLMapViewDelegate {
