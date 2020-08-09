@@ -16,9 +16,23 @@ struct MainView: View {
     
     @State private var name: String = ""
     
-    @State private var stopDetails = [StopDetail]()
+    @State private var stopDetails = [StopDetail]() {
+        didSet {
+                // get called when the list is set
+                DispatchQueue.main.async {
+                    print("should look at results and load the map with meaningful data")
+                    loadMap()
+                }
+            }
+    }
     
-    
+            
+    private func loadMap() -> Void {
+        for item in stopDetails {
+            myMapHolder.addStop(stop: item)
+            break
+        }
+    }
     
     private func search (center : CLLocationCoordinate2D, radius: Double) -> Void {
         print("center")

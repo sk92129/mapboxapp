@@ -73,6 +73,27 @@ struct MapboxMap: UIViewRepresentable {
         return mapView.centerCoordinate
     }
     
+    public func addStop(stop : StopDetail) -> Void {
+        // Create point to represent where the symbol should be placed
+        let point = MGLPointAnnotation()
+        guard let style = mapView.style else { return }
+        let ptLocation = CLLocationCoordinate2D(latitude: stop.stop_lat, longitude: stop.stop_lon)
+        
+        point.coordinate = ptLocation
+        let shapeSource = MGLShapeSource(identifier: "marker-source", shape: point, options: nil)
+        // Create a style layer for the symbol
+        let shapeLayer = MGLSymbolStyleLayer(identifier: "marker-style", source: shapeSource)
+        // Add the image to the style's sprite
+        if let image = UIImage(named: "house-icon") {
+            style.setImage(image, forName: "home-symbol")
+        }
+        // Tell the layer to use the image in the sprite
+        shapeLayer.iconImageName = NSExpression(forConstantValue: "home-symbol")
+        // Add the source and style layer to the map
+        style.addSource(shapeSource)
+        style.addLayer(shapeLayer)
+    }
+    
     final class Coordinator: NSObject, MGLMapViewDelegate {
         var control: MapboxMap
         
