@@ -80,9 +80,9 @@ struct MapboxMap: UIViewRepresentable {
         let ptLocation = CLLocationCoordinate2D(latitude: stop.stop_lat, longitude: stop.stop_lon)
         
         point.coordinate = ptLocation
-        let shapeSource = MGLShapeSource(identifier: "marker-source", shape: point, options: nil)
+        let shapeSource = MGLShapeSource(identifier: stop.stop_id, shape: point, options: nil)
         // Create a style layer for the symbol
-        let shapeLayer = MGLSymbolStyleLayer(identifier: "marker-style", source: shapeSource)
+        let shapeLayer = MGLSymbolStyleLayer(identifier: stop.stop_id, source: shapeSource)
         // Add the image to the style's sprite
         if let image = UIImage(named: "house-icon") {
             style.setImage(image, forName: "home-symbol")

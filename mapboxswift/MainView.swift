@@ -28,10 +28,24 @@ struct MainView: View {
     
             
     private func loadMap() -> Void {
+        var count = 0
         for item in stopDetails {
-            myMapHolder.addStop(stop: item)
-            break
+            //if (count == 0){
+                myMapHolder.addStop(stop: item)
+            //}
+            count = count + 1
+            print(item)
         }
+    }
+    
+    private func keepParentOnlyStops(allStops: [StopDetail]) -> [StopDetail] {
+        var parentsOnly = [StopDetail]()
+        for stop in allStops {
+            if (stop.parent_station == ""){
+                parentsOnly.append(stop)
+            }
+        }
+        return parentsOnly
     }
     
     private func search (center : CLLocationCoordinate2D, radius: Double) -> Void {
@@ -39,7 +53,8 @@ struct MainView: View {
         print (center)
         let mapService = MapService(lat: center.latitude, lon: center.longitude, radius: radius)
         mapService.getStops { (results) in
-            self.stopDetails = results
+            let stopsParents = keepParentOnlyStops(allStops: results)
+            self.stopDetails = stopsParents
         }
 
     }
