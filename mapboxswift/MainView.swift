@@ -28,12 +28,8 @@ struct MainView: View {
     
             
     private func loadMap() -> Void {
-        var count = 0
         for item in stopDetails {
-            //if (count == 0){
-                myMapHolder.addStop(stop: item)
-            //}
-            count = count + 1
+            myMapHolder.addStop(stop: item)
             print(item)
         }
     }
