@@ -16,7 +16,8 @@ struct Stops:Decodable {
     var stops: [StopDetail]
 }
 
-struct StopDetail : Decodable {
+struct StopDetail : Codable, Identifiable {
+    let id = UUID()
     var stop_id: String
     var stop_code: String
     var stop_name: String

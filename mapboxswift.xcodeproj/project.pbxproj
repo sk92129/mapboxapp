@@ -11,6 +11,8 @@
 		146B62F324DD31C600B727B7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B62F224DD31C600B727B7 /* MainView.swift */; };
 		146B62F524DE623700B727B7 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B62F424DE623700B727B7 /* MapService.swift */; };
 		146B62F724DE64CC00B727B7 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B62F624DE64CC00B727B7 /* Stop.swift */; };
+		146B62FB24DF30F000B727B7 /* StopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B62FA24DF30F000B727B7 /* StopModel.swift */; };
+		146B62FD24DF3FAA00B727B7 /* StopModelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B62FC24DF3FAA00B727B7 /* StopModelDetail.swift */; };
 		14C8874B24DCF0A9002FFA54 /* mapboxswiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C8874A24DCF0A9002FFA54 /* mapboxswiftApp.swift */; };
 		14C8874D24DCF0A9002FFA54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C8874C24DCF0A9002FFA54 /* ContentView.swift */; };
 		14C8874F24DCF0AC002FFA54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C8874E24DCF0AC002FFA54 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		146B62F224DD31C600B727B7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		146B62F424DE623700B727B7 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		146B62F624DE64CC00B727B7 /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		146B62FA24DF30F000B727B7 /* StopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopModel.swift; sourceTree = "<group>"; };
+		146B62FC24DF3FAA00B727B7 /* StopModelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopModelDetail.swift; sourceTree = "<group>"; };
 		14C8874724DCF0A9002FFA54 /* mapboxswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapboxswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C8874A24DCF0A9002FFA54 /* mapboxswiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapboxswiftApp.swift; sourceTree = "<group>"; };
 		14C8874C24DCF0A9002FFA54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				146B62F224DD31C600B727B7 /* MainView.swift */,
 				146B62F424DE623700B727B7 /* MapService.swift */,
 				146B62F624DE64CC00B727B7 /* Stop.swift */,
+				146B62FA24DF30F000B727B7 /* StopModel.swift */,
+				146B62FC24DF3FAA00B727B7 /* StopModelDetail.swift */,
 			);
 			path = mapboxswift;
 			sourceTree = "<group>";
@@ -220,10 +226,12 @@
 			files = (
 				146B62F524DE623700B727B7 /* MapService.swift in Sources */,
 				14C8874D24DCF0A9002FFA54 /* ContentView.swift in Sources */,
+				146B62FD24DF3FAA00B727B7 /* StopModelDetail.swift in Sources */,
 				146B62F324DD31C600B727B7 /* MainView.swift in Sources */,
 				14C8874B24DCF0A9002FFA54 /* mapboxswiftApp.swift in Sources */,
 				1420158424DCF967008AF555 /* MapboxMap.swift in Sources */,
 				146B62F724DE64CC00B727B7 /* Stop.swift in Sources */,
+				146B62FB24DF30F000B727B7 /* StopModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
